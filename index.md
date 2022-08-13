@@ -2,7 +2,7 @@
 
 ###  serilize
 
-~~~~java
+```java
 public class Codec {
     public String serialize(TreeNode root) {
         return rserialize(root, "");
@@ -39,8 +39,7 @@ public class Codec {
         return root;
     }
 }
-
-~~~
+```
 
 ### Markdown
 
