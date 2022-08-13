@@ -1,9 +1,15 @@
-## microsoft
-
+## microsoft QUESTION1
 ###  serilize
 
 ```java
+/*
+树的序列化与反序列化。采用前序（后序，中序）遍历对树结构进行保存成String类型。不存在的节点采用null标记。
+每个节点之间采用“，”分隔，方便后续分割。
+
+*/
+
 public class Codec {
+	
     public String serialize(TreeNode root) {
         return rserialize(root, "");
     }
@@ -39,35 +45,5 @@ public class Codec {
         return root;
     }
 }
+
 ```
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kivencurry/kivencurry.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
