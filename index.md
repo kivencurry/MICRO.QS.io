@@ -1,15 +1,52 @@
-## Welcome to GitHub Pages
+## microsoft
 
-You can use the [editor on GitHub](https://github.com/kivencurry/kivencurry.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+###  serilize
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+~~~~java
+public class Codec {
+    public String serialize(TreeNode root) {
+        return rserialize(root, "");
+    }
+  
+    public TreeNode deserialize(String data) {
+        String[] dataArray = data.split(",");
+        List<String> dataList = new LinkedList<String>(Arrays.asList(dataArray));
+        return rdeserialize(dataList);
+    }
+    public String rserialize(TreeNode root, String str) {
+        if (root == null) {
+            str += "None,";
+        } else {
+			//前序遍历
+            str += str.valueOf(root.val) + ",";
+            str = rserialize(root.left, str);
+            str = rserialize(root.right, str);
+        }
+        return str;
+    }
+  
+    public TreeNode rdeserialize(List<String> dataList) {
+        if (dataList.get(0).equals("None")) {
+            dataList.remove(0);
+            return null;
+        }
+  
+        TreeNode root = new TreeNode(Integer.valueOf(dataList.get(0)));
+        dataList.remove(0);
+        root.left = rdeserialize(dataList);
+        root.right = rdeserialize(dataList);
+    
+        return root;
+    }
+}
+
+~~~
 
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+
 
 # Header 1
 ## Header 2
