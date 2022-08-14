@@ -380,5 +380,52 @@ class Solution {
     }
 }
 ```
-
+### Q9
+###  和为k的子数组
+```java
+/*
+计算一个数组中和为k的连续的子数组的个数。
+前缀和，
+***************
+****
+pre[i]=pre[i−1]+nums[i]
+pre[i]−pre[j−1]==k
+pre[j−1]==pre[i]−k
+*/
+public class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int count = 0, pre = 0;
+        HashMap < Integer, Integer > mp = new HashMap < > ();
+        mp.put(0, 1);
+        for (int i = 0; i < nums.length; i++) {
+            pre += nums[i];
+            if (mp.containsKey(pre - k)) {
+                count += mp.get(pre - k);
+            }
+            mp.put(pre, mp.getOrDefault(pre, 0) + 1);
+        }
+        return count;
+    }
+}
+```
+### Q10
+###  翻转链表
+```java
+/*
+反转链表，让当前指针的next指向他的前一个node
+*/
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+}
+```
 
